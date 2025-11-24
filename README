@@ -1,0 +1,28 @@
+
+
+## Obiettivi del Progetto
+
+L’obiettivo del progetto è la realizzazione di una mappa interattiva che permetta di visualizzare punti geografici provenienti da un database PocketBase e arricchiti con informazioni meteo e sul luogo. L’utente può inoltre aggiungere nuovi punti cliccando sulla mappa, così da ampliare dinamicamente i dati visualizzati.
+
+## Requisiti Funzionali
+
+L’applicazione deve permettere di visualizzare su una mappa interattiva tutti i punti memorizzati nel database. Per ciascun punto devono essere recuperate automaticamente la temperatura corrente tramite il servizio Open-Meteo e le informazioni di localizzazione tramite Nominatim, così da visualizzare un popup contenente latitudine, longitudine, temperatura e nome del luogo.
+L’utente deve poter aggiungere un nuovo punto cliccando sulla mappa, salvandolo automaticamente in PocketBase senza necessità di ricaricare manualmente la pagina. I dati devono essere ricaricati dinamicamente, mostrando immediatamente il nuovo punto insieme alle relative informazioni meteo e geografiche.
+
+## Requisiti Non Funzionali
+
+L’interfaccia deve essere semplice e immediata, permettendo all’utente di interagire con la mappa senza necessità di istruzioni aggiuntive.
+Il sistema deve garantire affidabilità nel recupero e nella memorizzazione dei dati: i punti devono essere recuperati correttamente dal database PocketBase, mentre i servizi esterni devono essere gestiti in modo da fornire risultati coerenti.
+Il codice deve essere chiaro e ben suddiviso in funzioni, così da facilitare manutenzione, riutilizzo ed eventuali estensioni future.
+
+## Requisiti di Dominio
+
+Il progetto utilizza dati geografici e informazioni meteo ottenuti tramite servizi esterni. Non vengono trattati dati personali sensibili, quindi non sono richieste misure particolari di tutela. È necessario rispettare le linee guida di utilizzo delle API adottate, in particolare quelle relative a OpenStreetMap e Nominatim che richiedono attribuzione corretta delle fonti.
+
+## Requisiti di Vincolo
+
+Sul piano tecnologico è richiesto l’uso delle seguenti tecnologie: Leaflet per la mappa interattiva, PocketBase per la gestione dei dati, Open-Meteo per i dati meteorologici e Nominatim/OpenStreetMap per il reverse geocoding.
+L’applicazione necessita di una connessione Internet per interagire con i servizi esterni.
+Dal punto di vista organizzativo, lo sviluppo deve essere gestito tramite GitHub per permettere collaborazione e controllo delle versioni.
+È inoltre previsto un vincolo temporale che stabilisce la data entro la quale il progetto deve essere completato.
+
