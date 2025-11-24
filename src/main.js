@@ -95,12 +95,19 @@ const aggiuntiTabInfo = async() => {
   const tempMedia = (tempValues.reduce((a, b) => a + b, 0) / tempValues.length).toFixed(2);
   const tempMax = Math.max(...tempValues);
   const tempMin = Math.min(...tempValues);
-  
+  if( numPunti === 0){
+    tabInfoDiv.innerHTML = `<h3>Statistiche Punti Aggiunti</h3>
+                            <p>Nessun punto aggiunto.</p>`;
+    return;
+  }
+  else{
   tabInfoDiv.innerHTML = `<h3>Statistiche Punti Aggiunti</h3>
                           <p>Numero di punti aggiunti: ${numPunti}</p>
                           <p>Temperatura Media: ${tempMedia}°C</p>
                           <p>Temperatura Massima: ${tempMax}°C</p>
                           <p>Temperatura Minima: ${tempMin}°C</p>`;
+
+                        }
 }
 aggiuntiTabInfo();
 
