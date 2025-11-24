@@ -98,7 +98,6 @@ const aggiuntiTabInfo = async() => {
   if( numPunti === 0){
     tabInfoDiv.innerHTML = `<h3>Statistiche Punti Aggiunti</h3>
                             <p>Nessun punto aggiunto.</p>`;
-    return;
   }
   else{
   tabInfoDiv.innerHTML = `<h3>Statistiche Punti Aggiunti</h3>
