@@ -67,7 +67,42 @@ const onMapClick = async(e) => {
     caricaDati();
     }
 
+const aggiungiInfo = async() => {
+  const infoDiv = document.getElementById('info');
+  infoDiv.innerHTML = '<h3>Legenda Temperature  </h3>' +                    
+                      '<p><span style="color: blue;">&#9679;</span> ≤ 0°C</p>' +
+                      '<p><span style="color: cyan;">&#9679;</span> 1°C - 15°C</p>' +
+                      '<p><span style="color: green;">&#9679;</span> 16°C - 25°C</p>' +
+                      '<p><span style="color: orange;">&#9679;</span> 26°C - 35°C</p>' +
+                      '<p><span style="color: red;">&#9679;</span> > 35°C</p>';
+}
+aggiungiInfo(); 
 
+//numero di punti aggiunti
+//temp media
+//temp max
+//temp min
+const aggiuntiTabInfo = async() => {
+  const tabInfoDiv = document.getElementById('tabInfo');
+  const numPunti = items.length;
+  const tempValues = [];
+  for await (const item of items) {
+    const lat = item.geopoint.lat;
+    const lon = item.geopoint.lon;
+    const temp = await getTemperature(lat,lon);
+    tempValues.push(temp);
+  }
+  const tempMedia = (tempValues.reduce((a, b) => a + b, 0) / tempValues.length).toFixed(2);
+  const tempMax = Math.max(...tempValues);
+  const tempMin = Math.min(...tempValues);
+  
+  tabInfoDiv.innerHTML = `<h3>Statistiche Punti Aggiunti</h3>
+                          <p>Numero di punti aggiunti: ${numPunti}</p>
+                          <p>Temperatura Media: ${tempMedia}°C</p>
+                          <p>Temperatura Massima: ${tempMax}°C</p>
+                          <p>Temperatura Minima: ${tempMin}°C</p>`;
+}
+aggiuntiTabInfo();
 
 
 caricaDati();
