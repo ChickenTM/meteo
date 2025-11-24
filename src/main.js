@@ -65,6 +65,8 @@ const onMapClick = async(e) => {
       geopoint: {lat: e.latlng.lat, lon: e.latlng.lng}
     });
     caricaDati();
+    aggiuntiTabInfo();
+  
     }
 
 const aggiungiInfo = async() => {
@@ -78,10 +80,6 @@ const aggiungiInfo = async() => {
 }
 aggiungiInfo(); 
 
-//numero di punti aggiunti
-//temp media
-//temp max
-//temp min
 const aggiuntiTabInfo = async() => {
   const tabInfoDiv = document.getElementById('tabInfo');
   const numPunti = items.length;
